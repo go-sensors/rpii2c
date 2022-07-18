@@ -2,6 +2,7 @@ package rpii2c
 
 import (
 	"github.com/d2r2/go-i2c"
+	"github.com/d2r2/go-logger"
 	corei2c "github.com/go-sensors/core/i2c"
 	coreio "github.com/go-sensors/core/io"
 	"github.com/pkg/errors"
@@ -42,4 +43,8 @@ func (p *I2CPort) Open() (coreio.Port, error) {
 		i2c,
 	}
 	return wrapper, nil
+}
+
+func init() {
+	logger.ChangePackageLogLevel("i2c", logger.InfoLevel)
 }
